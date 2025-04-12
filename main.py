@@ -1,5 +1,6 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware  # Add this import
 import uvicorn
 import numpy as np
 import cv2
@@ -7,6 +8,15 @@ from io import BytesIO
 from ultralytics import YOLO
 
 app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Load your ACTUAL TRAINED MODEL (critical difference)
 model = YOLO('trained_model.pt')  
