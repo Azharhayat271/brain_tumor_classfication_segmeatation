@@ -1,6 +1,18 @@
+# Core API
 fastapi
 uvicorn
-tensorflow
-pillow
+python-multipart
+
+# Image Processing
 numpy
-pydantic
+opencv-python-headless
+Pillow
+
+# YOLO and ML
+torch
+ultralytics
+onnxruntime
+
+# Utilities
+python-dotenv
+loguru
